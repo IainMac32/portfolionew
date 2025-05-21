@@ -1,0 +1,22 @@
+.homepage {
+    height: 100vh;
+    background-color: #add8e6; /* light blue */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: none !important; /* Hides default cursor */
+  }
+  
+
+.custom-cursor {
+    position: fixed;
+    width: 32px;      /* Set width and height to your PNG size */
+    height: 32px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+  

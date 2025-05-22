@@ -1,22 +1,16 @@
-.homepage {
-    height: 100vh;
-    background-color: #add8e6; /* light blue */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: none !important; /* Hides default cursor */
+* {
+    cursor: url(p.png), auto;
   }
   
 
-.custom-cursor {
-    position: fixed;
-    width: 32px;      /* Set width and height to your PNG size */
-    height: 32px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
+  html, body, #root, .homepage-container {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .homepage-container {
+    background-color: lightblue;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
   }
   

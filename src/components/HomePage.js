@@ -1,20 +1,19 @@
+import React from 'react';
 import '../styles/HomePage.css';
-import React, { useEffect } from 'react';
+import image from '../assets/IainPhoto.png';  // Make sure you import your image correctly
 
 function HomePage() {
-  useEffect(() => {
-    const handleMouseEnter = () => {
-      document.body.style.cursor = 'url(p.png), auto';
-    };
-
-    window.addEventListener('mouseenter', handleMouseEnter);
-
-    return () => {
-      window.removeEventListener('mouseenter', handleMouseEnter);
-    };
-  }, []);
-
-  return <div className="homepage-container"></div>;
+  return (
+    <div className="homepage-container">
+      <img src={image} alt="My Image" className="left-image" />
+      <div className="button-group">
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <button>Button 3</button>
+        <button>Button 4</button>
+      </div>
+    </div>
+  );
 }
 
 export default HomePage;

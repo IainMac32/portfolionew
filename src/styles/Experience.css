@@ -5,7 +5,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  
 }
 
 html, body {
@@ -25,12 +24,12 @@ html, body {
   place-content: center;
   place-items: center;
   --stripes: repeating-linear-gradient(100deg, #fff 0%, #fff 7%, transparent 10%, transparent 12%, #fff 16%);
-  --rainbow: repeating-linear-gradient(100deg, #c4dfff 10%, #f9d0ff 15%, #c4dfff 20%, #c2eae4 25%, #c4dfff 30%);  
+  --rainbow: repeating-linear-gradient(100deg, #c4dfff 10%, #f9d0ff 15%, #c4dfff 20%, #c2eae4 25%, #c4dfff 30%);
   background-image: var(--stripes), var(--rainbow);
   background-size: 300%, 200%;
   background-position: 50% 50%, 50% 50%;
-  -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%); /* Keep a solid color for the visible part of the mask */
-  mask-image: radial-gradient(ellipse at 100% 0%, rgb(0, 0, 0) 40%, transparent 70%);      /* Keep a solid color for the visible part of the mask */
+  -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 100% 0%, rgb(0, 0, 0) 40%, transparent 70%);
   filter: blur(10px) invert(100%);
 }
 
@@ -54,7 +53,7 @@ html, body {
   100% { background-position: 0% 0%, 0% 0%; }
 }
 
-/* Experience Container Styles (Removed background) */
+/* Experience Container Styles */
 .experience-container {
   position: relative;
   display: flex;
@@ -64,7 +63,7 @@ html, body {
   min-height: 100vh;
   padding: 1rem;
   overflow: hidden;
-  perspective: 3000px; /* Adds depth for 3D transforms */
+  perspective: 3000px;
   background-color: #bddeff;
 }
 
@@ -80,14 +79,14 @@ html, body {
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
-  margin-left: 300px; /* keep the image shifted left */
+  margin-left: 300px;
 }
 
 .experience-text-box {
   transition: transform 0.15s ease;
   transform-style: preserve-3d;
   will-change: transform;
-  background-color: #92c9ffad; /* dark blue */
+  background-color: #92c9ffad;
   border: 4px solid #1088ff;
   border-radius: 35px;
   padding: 1.5rem;
@@ -96,6 +95,10 @@ html, body {
   height: 30rem;
   margin-left: 100px;
   margin-right: 70px;
+}
+
+.experience-text-box:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Text Content Styles */
@@ -114,4 +117,25 @@ html, body {
   list-style-type: disc;
   padding-left: 1.5rem;
   font-size: 1.3rem;
+}
+
+/* Transition Circle Styles - UPDATED */
+.transition-circle1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200vw;
+  height: 200vh;
+  border-radius: 0%;
+  background-color: #1088ff;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  /* Remove transition from here - we only want it when shrinking */
+}
+
+.transition-circle1.shrink {
+  width: 0;
+  height: 0;
+  /* Only apply transition when shrinking */
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
 }

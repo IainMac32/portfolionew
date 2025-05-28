@@ -31,8 +31,9 @@ function HomePage() {
 
   return (
     <>
-      <div id="animated-background"></div>
       <div className="homepage-container">
+      <div id="animated-background"></div>
+
         <img src={image} alt="Iain" className="left-image" />
         <div className="button-group">
           <button

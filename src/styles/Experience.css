@@ -2,140 +2,170 @@
 
 /* Reset and general styles */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
-
-/* Animated Background Styles */
-#animated-background {
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  position: fixed;
-  top: 0;
-  z-index: -1000;
-  display: flex;
-  place-content: center;
-  place-items: center;
-  --stripes: repeating-linear-gradient(100deg, #fff 0%, #fff 7%, transparent 10%, transparent 12%, #fff 16%);
-  --rainbow: repeating-linear-gradient(100deg, #c4dfff 10%, #f9d0ff 15%, #c4dfff 20%, #c2eae4 25%, #c4dfff 30%);
-  background-image: var(--stripes), var(--rainbow);
-  background-size: 300%, 200%;
-  background-position: 50% 50%, 50% 50%;
-  -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-  mask-image: radial-gradient(ellipse at 100% 0%, rgb(0, 0, 0) 40%, transparent 70%);
-  filter: blur(10px) invert(100%);
-}
-
-#animated-background::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: var(--stripes), var(--rainbow);
-  background-size: 200% 100%;
-  animation: smoothBg 60s linear infinite;
-  background-attachment: fixed;
-  mix-blend-mode: difference;
-}
-
-@keyframes smoothBg {
-  0% { background-position: 0% 0%, 0% 0%; }
-  50% { background-position: 100% 100%, 100% 100%; }
-  100% { background-position: 0% 0%, 0% 0%; }
-}
-
-/* Experience Container Styles */
-.experience-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 2rem;
-  min-height: 100vh;
-  padding: 1rem;
-  overflow: hidden;
-  perspective: 3000px;
-  background-color: #bddeff;
-}
-
-/* Image and Text Box Styles */
-.left-image,
-.experience-text-box {
-  position: relative;
-  z-index: 1;
-}
-
-.left-image {
-  max-height: 50vh;
-  width: auto;
-  object-fit: contain;
-  flex-shrink: 0;
-  margin-left: 300px;
-}
-
-.experience-text-box {
-  transition: transform 0.15s ease;
-  transform-style: preserve-3d;
-  will-change: transform;
-  background-color: #92c9ffad;
-  border: 4px solid #1088ff;
-  border-radius: 35px;
-  padding: 1.5rem;
-  color: rgb(0, 0, 0);
-  width: clamp(250px, 50vw, 1200px);
-  height: 30rem;
-  margin-left: 100px;
-  margin-right: 70px;
-}
-
-.experience-text-box:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Text Content Styles */
-.title {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #000339;
-}
-
-.bullet-points {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  font-size: 1.3rem;
-}
-
-/* Transition Circle Styles - UPDATED */
-.transition-circle1 {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 200vw;
-  height: 200vh;
-  border-radius: 0%;
-  background-color: #1088ff;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  /* Remove transition from here - we only want it when shrinking */
-}
-
-.transition-circle1.shrink {
-  width: 0;
-  height: 0;
-  /* Only apply transition when shrinking */
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
-}
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Animated Background Styles */
+  #animated-background {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: -1000;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    --stripes: repeating-linear-gradient(100deg, #fff 0%, #fff 7%, transparent 10%, transparent 12%, #fff 16%);
+    --rainbow: repeating-linear-gradient(100deg, #c4dfff 10%, #f9d0ff 15%, #c4dfff 20%, #c2eae4 25%, #c4dfff 30%);
+    background-image: var(--stripes), var(--rainbow);
+    background-size: 300%, 200%;
+    background-position: 50% 50%, 50% 50%;
+    -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+    mask-image: radial-gradient(ellipse at 100% 0%, rgb(0, 0, 0) 40%, transparent 70%);
+    filter: blur(10px) invert(100%);
+  }
+  
+  #animated-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: var(--stripes), var(--rainbow);
+    background-size: 200% 100%;
+    animation: smoothBg 60s linear infinite;
+    background-attachment: fixed;
+    mix-blend-mode: difference;
+  }
+  
+  @keyframes smoothBg {
+    0% { background-position: 0% 0%, 0% 0%; }
+    50% { background-position: 100% 100%, 100% 100%; }
+    100% { background-position: 0% 0%, 0% 0%; }
+  }
+  
+  /* Experience Container Styles */
+  .experience-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    min-height: 100vh;
+    padding: 1rem;
+    overflow: hidden;
+    perspective: 3000px;
+    background-color: #bddeff;
+  }
+  
+  /* Image and Text Box Styles */
+  .left-image,
+  .experience-text-box {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .left-image {
+    max-height: 50vh;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-left: 300px;
+  }
+  
+  .experience-text-box1 {
+    transition: transform 0.15s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+    background-color: #92c9ffad;
+    border: 4px solid #1088ff;
+    border-radius: 35px;
+    padding: 1.5rem;
+    color: rgb(0, 0, 0);
+    width: clamp(250px, 50vw, 1200px);
+    height: 8.2rem;
+    margin-left: 100px;
+    margin-right: 70px;
+    cursor: pointer;
+  }
+  
+  .experience-text-box:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Text Content Styles */
+  .title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #000339;
+  }
+  
+  
+  /* Transition Circle Styles - COMPLETELY UPDATED */
+  .transition-circle2 {
+    position: fixed;
+    background-color: #1088ff;
+    z-index: 9999;
+    border-radius: 0%; /* Keep it as rectangle as requested */
+  }
+  
+  /* Initial state: covering the screen */
+  .transition-circle2.covering {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  /* Shrinking state: animate to 0 size */
+  .transition-circle2.shrinking {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  }
+  
+  /* Expanding state: animate from center to full screen */
+  .transition-circle2.expanding {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    animation: expandFromCenter 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes expandFromCenter {
+    0% {
+      width: 0;
+      height: 0;
+    }
+    100% {
+      width: 200vw; /* Make it bigger than screen to ensure full coverage */
+      height: 200vh;
+    }
+  }
+  
+  /* Hidden state: not visible */
+  .transition-circle2.hidden {
+    width: 0;
+    height: 0;
+    display: none;
+  }

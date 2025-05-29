@@ -2,33 +2,36 @@ import React, { useRef, useEffect, useState } from 'react';
 import '../styles/Experience.css';
 import image from '../assets/IainPhoto.png';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Experience() {
   const boxRef = useRef(null);
   const transitionCircleRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
+  
   // Initialize states based on whether we need the transition
   const shouldStartWithTransition = location.state?.startBlack;
-  const [isRevealing, setIsRevealing] = useState(shouldStartWithTransition);
-  const [shouldShrink, setShouldShrink] = useState(false);
-  const [showContent, setShowContent] = useState(!shouldStartWithTransition); // Hide content if transition needed
+  const [showTransitionCircle, setShowTransitionCircle] = useState(shouldStartWithTransition);
+  const [circleState, setCircleState] = useState(shouldStartWithTransition ? 'covering' : 'hidden');
+  const [showContent, setShowContent] = useState(!shouldStartWithTransition);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     if (shouldStartWithTransition) {
-      // Very small delay to ensure the circle renders first
+      // Start with circle covering screen, then shrink to reveal content
       setTimeout(() => {
-        setShouldShrink(true); // Trigger the shrink animation
-        setShowContent(true); // Show content when circle is gone
-
+        setCircleState('shrinking');
+        setShowContent(true);
         
-        // After the shrink animation, show content and remove the circle
+        // After shrink animation completes, hide the circle
         setTimeout(() => {
-          setIsRevealing(false);
-          setShouldShrink(false); // Reset for next time
-        }, 500); // Match your animation duration
-      }, 10); // Minimal delay
+          setShowTransitionCircle(false);
+          setCircleState('hidden');
+        }, 500); // Match your CSS transition duration
+      }, 100); // Small delay to ensure initial render
     }
-  }, []); // Remove location.state dependency since we handle it in initialization
+  }, [shouldStartWithTransition]);
 
   const handleMouseMove = (e) => {
     const box = boxRef.current;
@@ -36,8 +39,8 @@ function Experience() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const rotateY = (x / rect.width - 0.5) * 5; // Subtle tilt
-    const rotateX = (0.5 - y / rect.height) * 5; // Subtle tilt
+    const rotateY = (x / rect.width - 0.5) * 5;
+    const rotateX = (0.5 - y / rect.height) * 5;
 
     box.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
   };
@@ -47,36 +50,44 @@ function Experience() {
     box.style.transform = 'rotateX(0deg) rotateY(0deg)';
   };
 
+  const handleNavigateToExperience = () => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setShowTransitionCircle(true);
+    setCircleState('expanding');
+    
+    // Navigate after expansion animation completes
+    setTimeout(() => {
+      navigate('/firstontario', { state: { startBlack: true } });
+    }, 500); // Match your CSS transition duration
+  };
+
   return (
     <div className="experience-container">
       <div id="animated-background"></div>
       
-      {/* Content is conditionally rendered based on showContent state */}
       {showContent && (
         <>
           <img src={image} alt="Iain" className="left-image" />
           <div
             ref={boxRef}
-            className="experience-text-box"
+            className="experience-text-box1"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
+            onClick={handleNavigateToExperience}
           >
             <h1 className="title">Experience Title</h1>
             <h2 className="subtitle">Secondary Title</h2>
-            <ul className="bullet-points">
-              <li>First key point about the experience</li>
-              <li>Second key point about the experience</li>
-              <li>Third key point about the experience</li>
-            </ul>
           </div>
         </>
       )}
       
-      {isRevealing && (
+      {showTransitionCircle && (
         <div
           ref={transitionCircleRef}
-          className={`transition-circle1 ${shouldShrink ? 'shrink' : ''}`}
-        ></div>
+          className={`transition-circle2 ${circleState}`}
+        />
       )}
     </div>
   );

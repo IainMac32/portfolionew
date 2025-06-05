@@ -150,7 +150,32 @@
   transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
 }
 
-.transition-circle.expand {
-  width: 200vw; /* Expand to cover the whole screen */
-  height: 200vh;
-}
+  /* Expanding state: animate from center to full screen */
+  .transition-circle.expanding {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    animation: expandFromCenter 0.5s ease-in-out forwards;
+  }
+
+
+  /* Initial state: covering the screen */
+  .transition-circle.covering {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  /* Shrinking state: animate to 0 size */
+  .transition-circle.shrinking {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  }

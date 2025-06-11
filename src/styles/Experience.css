@@ -1,19 +1,20 @@
-/* Experience.css */
+/* Experience.css - All styles made specific to avoid conflicts */
 
-/* Reset and general styles */
-* {
+/* Reset and general styles - scoped to experience container */
+.experience-container * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+.experience-container html, 
+.experience-container body {
   height: 100%;
   overflow-x: hidden;
 }
 
 /* Animated Background Styles */
-#animated-background {
+.experience-container #animated-background {
   width: 100%;
   height: 100%;
   min-height: 100vh;
@@ -33,7 +34,7 @@ html, body {
   filter: blur(10px) invert(100%);
 }
 
-#animated-background::after {
+.experience-container #animated-background::after {
   content: "";
   position: absolute;
   top: 0;
@@ -53,9 +54,8 @@ html, body {
   100% { background-position: 0% 0%, 0% 0%; }
 }
 
-
 /* Container for the text boxes - changed to grid layout */
-.text-boxes-container {
+.experience-container .text-boxes-container {
   display: grid;
   grid-template-columns: 1fr 1fr; /* 2 columns of equal width */
   grid-template-rows: repeat(3, 1fr); /* 3 rows of equal height */
@@ -64,14 +64,14 @@ html, body {
   max-width: 1000px; /* Optional: limit the total width */
   width: 980px;
   margin-bottom: 1.5rem;
-
 }
 
-.home-exp-container {
+.experience-container .home-exp-container {
   display: flex;
   flex-direction: column;
   align-items: center; /* Centers items horizontally within the column */
   justify-content: center; /* Centers items vertically within the container */
+  margin-left: 40px;
 }
 
 /* Experience Container Styles */
@@ -89,21 +89,21 @@ html, body {
 }
 
 /* Image and Text Box Styles */
-.left-image-e,
-.experience-text-box {
+.experience-container .left-image-e,
+.experience-container .experience-text-box {
   position: relative;
   z-index: 1;
 }
 
-.left-image-e {
+.experience-container .left-image-e {
   max-height: 50vh;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
-  margin-left: 150px;
+  margin-left: 100px;
 }
 
-.experience-text-box1 {
+.experience-container .experience-text-box1 {
   transition: transform 0.15s ease;
   transform-style: preserve-3d;
   will-change: transform;
@@ -113,13 +113,12 @@ html, body {
   padding: 1.5rem;
   color: rgb(0, 0, 0);
   width: 100%; /* Take full width of grid cell */
-  height: 10.4rem;
-  /* Removed margin-left and margin-right since grid handles positioning */
+  height: 10.8rem;
   cursor: pointer;
+  text-align: left; /* Explicitly set text alignment */
 }
 
-
-.experience-text-box2 {
+.experience-container .experience-text-box2 {
   transition: transform 0.15s ease;
   transform-style: preserve-3d;
   will-change: transform;
@@ -130,7 +129,6 @@ html, body {
   color: rgb(0, 0, 0);
   width: 40%; /* Take full width of grid cell */
   height: 4.0rem;
-  /* Removed margin-left and margin-right since grid handles positioning */
   cursor: pointer;
   font-size: 30px;
   font-weight: bold;
@@ -140,46 +138,58 @@ html, body {
   margin-bottom: 10px;
 }
 
-.experience-text-box2:hover {
+.experience-container .experience-text-box2:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.experience-text-box1:hover {
+.experience-container .experience-text-box1:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Text Content Styles */
-.title {
+/* Text Content Styles - Made specific to experience */
+.experience-container .experience-text-box1 .title {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
-.subtitle {
+.experience-container .experience-text-box1 .subtitle {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #000339;
+  text-align: left;
 }
 
-.subsubtitle {
+.experience-container .experience-text-box1 .subsubtitle {
   font-size: 1.2rem;
   color: #000339;
+  text-align: left;
 }
 
-.date-logo-container {
+.experience-container .experience-text-box1 .date-logo-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.fcu-logo {
+.experience-container .experience-text-box1 .fcu-logo {
   height: 1.8rem; /* Adjust size as needed */
   width: auto;
   object-fit: contain;
   margin-right: 10px;
 }
 
+
+.small-logo {
+  height: 2.6rem; /* Adjust size as needed */
+  width: auto;
+  object-fit: contain;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+
 /* Transition Circle Styles - COMPLETELY UPDATED */
-.transition-circle2 {
+.experience-container .transition-circle2 {
   position: fixed;
   background-color: #1088ff;
   z-index: 9999;
@@ -187,7 +197,7 @@ html, body {
 }
 
 /* Initial state: covering the screen */
-.transition-circle2.covering {
+.experience-container .transition-circle2.covering {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -196,7 +206,7 @@ html, body {
 }
 
 /* Shrinking state: animate to 0 size */
-.transition-circle2.shrinking {
+.experience-container .transition-circle2.shrinking {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -206,7 +216,7 @@ html, body {
 }
 
 /* Expanding state: animate from center to full screen */
-.transition-circle2.expanding {
+.experience-container .transition-circle2.expanding {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -227,7 +237,7 @@ html, body {
 }
 
 /* Hidden state: not visible */
-.transition-circle2.hidden {
+.experience-container .transition-circle2.hidden {
   width: 0;
   height: 0;
   display: none;
@@ -235,12 +245,12 @@ html, body {
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-  .text-boxes-container {
+  .experience-container .text-boxes-container {
     grid-template-columns: 1fr; /* Stack in single column on mobile */
     grid-template-rows: repeat(6, 1fr); /* 6 rows for single column */
   }
   
-  .left-image-e {
+  .experience-container .left-image-e {
     margin-left: 50px; /* Reduce left margin on mobile */
   }
 }

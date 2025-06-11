@@ -4,6 +4,11 @@ import image from '../assets/IainPhoto.png';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import firstOntarioLogo from '../assets/firstontarioLogo2.png';
+import MacAILogo from '../assets/MacAILogo.png';
+import GDGLogo from '../assets/GDGLogo.png';
+import StemCampLogo from '../assets/StemCampLogoBackground.jpg';
+import TutorAILogo from '../assets/TutorAILogoBackground.jpg';
+import DigitalFireLogo from '../assets/digitalFireLogo.jpeg';
 
 function Experience() {
     const boxRef1 = useRef(null);
@@ -60,7 +65,7 @@ function Experience() {
         box.style.transform = 'rotateX(0deg) rotateY(0deg)';
     };
 
-    const handleNavigateToExperience = () => {
+    const handleNavigateToExperience = (pageToGoTo) => () => {
         if (isTransitioning) return;
         
         setIsTransitioning(true);
@@ -69,11 +74,11 @@ function Experience() {
         
         // Navigate after expansion animation completes
         setTimeout(() => {
-            navigate('/firstontario', { state: { startBlack: true } });
+            navigate('/firstontario', { state: { startBlack: true, page: pageToGoTo } });
         }, 500); // Match your CSS transition duration
     };
 
-    const handleNavigateToHome = () => {
+    const handleNavigateToHome =  () => {
         if (isTransitioning) return;
         
         setIsTransitioning(true);
@@ -101,12 +106,12 @@ function Experience() {
                             className="experience-text-box1"
                             onMouseMove={handleMouseMove(boxRef1)}
                             onMouseLeave={handleMouseLeave(boxRef1)}
-                            onClick={handleNavigateToExperience}
+                            onClick={handleNavigateToExperience(0)}
                         >
                             <h1 className="title">FirstOntario Credit Union</h1>
                             <h2 className="subtitle">Junior Security Analyst</h2>
                             <div className="date-logo-container">
-                                <h3 className="subsubtitle">2025 Apr - current</h3>
+                                <h3 className="subsubtitle">2025 Apr - Present</h3>
                                 <img src={firstOntarioLogo} alt="FirstOntario Logo" className="fcu-logo" />
                             </div>
                         </div>
@@ -115,50 +120,70 @@ function Experience() {
                             className="experience-text-box1"
                             onMouseMove={handleMouseMove(boxRef2)}
                             onMouseLeave={handleMouseLeave(boxRef2)}
-                            onClick={handleNavigateToExperience}
+                            onClick={handleNavigateToExperience(1)}
                         >
-                            <h1 className="title">Experience Title 2</h1>
-                            <h2 className="subtitle">Secondary Title 2</h2>
+                            <h1 className="title">McMaster AI Society</h1>
+                            <h2 className="subtitle">Project Lead & Software Developer</h2>
+                            <div className="date-logo-container">
+                                <h3 className="subsubtitle">2023 Oct - Present</h3>
+                                <img src={MacAILogo} alt="MacAI Logo" className="small-logo" />
+                            </div>
                         </div>
                         <div
                             ref={boxRef3}
                             className="experience-text-box1"
                             onMouseMove={handleMouseMove(boxRef3)}
                             onMouseLeave={handleMouseLeave(boxRef3)}
-                            onClick={handleNavigateToExperience}
+                            onClick={handleNavigateToExperience(2)}
                         >
-                            <h1 className="title">Experience Title 3</h1>
-                            <h2 className="subtitle">Secondary Title 3</h2>
+                            <h1 className="title">Google Developer Groups</h1>
+                            <h2 className="subtitle">Software Developer</h2>
+                            <div className="date-logo-container">
+                                <h3 className="subsubtitle">2024 Sep - Present</h3>
+                                <img src={GDGLogo} alt="GDG Logo" className="small-logo" />
+                            </div>
                         </div>
                         <div
                             ref={boxRef4}
                             className="experience-text-box1"
                             onMouseMove={handleMouseMove(boxRef4)}
                             onMouseLeave={handleMouseLeave(boxRef4)}
-                            onClick={handleNavigateToExperience}
+                            onClick={handleNavigateToExperience(3)}
                         >
-                            <h1 className="title">Experience Title 3</h1>
-                            <h2 className="subtitle">Secondary Title 3</h2>
+                            <h1 className="title">Tutor.AI</h1>
+                            <h2 className="subtitle">Software Consultant</h2>
+                            <div className="date-logo-container">
+                                <h3 className="subsubtitle">2024 Mar - 2024 Aug</h3>
+                                <img src={TutorAILogo} alt="TutorAI Logo" className="small-logo" />
+                            </div>
                         </div>
                         <div
                             ref={boxRef5}
                             className="experience-text-box1"
                             onMouseMove={handleMouseMove(boxRef5)}
                             onMouseLeave={handleMouseLeave(boxRef5)}
-                            onClick={handleNavigateToExperience}
+                            onClick={handleNavigateToExperience(4)}
                         >
-                            <h1 className="title">Experience Title 3</h1>
-                            <h2 className="subtitle">Secondary Title 3</h2>
+                            <h1 className="title">STEM Camp & Steamoji</h1>
+                            <h2 className="subtitle">Camp Counselor</h2>
+                            <div className="date-logo-container">
+                                <h3 className="subsubtitle">2024 May - 2024 Aug</h3>
+                                <img src={StemCampLogo} alt="StemCamp Logo" className="small-logo" />
+                            </div>
                         </div>
                         <div
                             ref={boxRef6}
                             className="experience-text-box1"
                             onMouseMove={handleMouseMove(boxRef6)}
                             onMouseLeave={handleMouseLeave(boxRef6)}
-                            onClick={handleNavigateToExperience}
+                            onClick={handleNavigateToExperience(5)}
                         >
-                            <h1 className="title">Experience Title 3</h1>
-                            <h2 className="subtitle">Secondary Title 3</h2>
+                            <h1 className="title">Digital Fire</h1>
+                            <h2 className="subtitle">IT Co-op Placement</h2>
+                            <div className="date-logo-container">
+                                <h3 className="subsubtitle">2022 Feb - 2022 Jun</h3>
+                                <img src={DigitalFireLogo} alt="Digital Fire Logo" className="small-logo" />
+                            </div>
                         </div>
                     </div>
                     </div>

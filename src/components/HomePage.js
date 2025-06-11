@@ -86,7 +86,7 @@ function HomePage() {
         <div id="animated-background"></div>
         {showContent && (
           <>
-            <img src={image} alt="Iain" className="left-image" />
+            <img src={image} alt="Iain" className="left-image-home" />
             <div className="button-group">
               <button
                 onClick={handleNavigateToExperience}

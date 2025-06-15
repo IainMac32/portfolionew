@@ -202,7 +202,7 @@
 }
 
 .fo-date {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 1.5rem;
   color: #000339;
   text-align: center;
@@ -311,17 +311,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* Hidden state */
 .fo-transition-circle--hidden {
   display: none;
@@ -377,6 +366,8 @@
   .fo-subtitle {
     font-size: 1.4rem;
   }
+
+
 }
 
 @media (max-width: 768px) {

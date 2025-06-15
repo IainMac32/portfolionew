@@ -115,6 +115,7 @@ function HomePage() {
                 <div
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
+                  onClick={() => window.open('https://github.com/IainMac32', '_blank')}
                   className="button-four"
                 >
                   <img src={githublogo} alt="Github" />
@@ -122,6 +123,7 @@ function HomePage() {
                 <div
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
+                  onClick={() => window.open('https://www.linkedin.com/in/iain-macdonald-78717720a/?originalSubdomain=ca', '_blank')}
                   className="button-four"
                 >
                   <img src={linkedinlogo} alt="LinkedIn" />
@@ -129,6 +131,7 @@ function HomePage() {
                 <div
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
+                  onClick={() => window.open('/IainRes.pdf', '_blank')}
                   className="button-four"
                 >
                   <img src={resumelogo} alt="Resume" />

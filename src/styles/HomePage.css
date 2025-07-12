@@ -11,7 +11,7 @@
   }
 
 
-  /* Animated Background Styles */
+/* Animated Background Styles */
 #animated-background {
   width: 100%;
   height: 100%;
@@ -170,12 +170,21 @@
     height: 100vh;
   }
   
-  /* Shrinking state: animate to 0 size */
-  .transition-circle.shrinking {
+ .transition-circle.shrinking {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 0;
-    height: 0;
-    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+    animation: shrinkToCenter 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes shrinkToCenter {
+    0% {
+      width: 100vw;
+      height: 100vh;
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+    100% {
+      width: 0;
+      height: 0;
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
   }

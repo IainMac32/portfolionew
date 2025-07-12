@@ -71,7 +71,8 @@
   flex-direction: column;
   align-items: center; /* Centers items horizontally within the column */
   justify-content: center; /* Centers items vertically within the container */
-  margin-left: 40px;
+  margin-left: 0px;
+  scale: 0.9;
 }
 
 /* Experience Container Styles */
@@ -205,17 +206,28 @@
   height: 100vh;
 }
 
-/* Shrinking state: animate to 0 size */
 .experience-container .transition-circle2.shrinking {
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  animation: shrinkToCenter 0.5s ease-in-out forwards;
 }
 
-/* Expanding state: animate from center to full screen */
+@keyframes shrinkToCenter {
+  0% {
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+
+
+
 .experience-container .transition-circle2.expanding {
   top: 50%;
   left: 50%;
@@ -225,14 +237,17 @@
   animation: expandFromCenter 0.5s ease-in-out forwards;
 }
 
+
 @keyframes expandFromCenter {
   0% {
     width: 0;
     height: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   100% {
     width: 200vw; /* Make it bigger than screen to ensure full coverage */
     height: 200vh;
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 

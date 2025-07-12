@@ -175,7 +175,7 @@ function Firstontario() {
     // Navigate after expansion animation completes
     setTimeout(() => {
       navigate('/', { state: { startBlack: true } });
-    }, 500);
+    }, 1000);
   };
 
   const currentExperience = experiences[currentExperienceIndex];

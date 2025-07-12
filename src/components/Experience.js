@@ -75,7 +75,7 @@ function Experience() {
         // Navigate after expansion animation completes
         setTimeout(() => {
             navigate('/firstontario', { state: { startBlack: true, page: pageToGoTo } });
-        }, 500); // Match your CSS transition duration
+        }, 1000); // Match your CSS transition duration
     };
 
     const handleNavigateToHome =  () => {
@@ -88,7 +88,7 @@ function Experience() {
         // Navigate after expansion animation completes
         setTimeout(() => {
             navigate('/', { state: { startBlack: true } });
-        }, 500); // Match your CSS transition duration
+        }, 1000); // Match your CSS transition duration
     };
 
     return (

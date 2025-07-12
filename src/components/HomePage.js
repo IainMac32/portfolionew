@@ -77,8 +77,23 @@ function HomePage() {
     // Navigate after expansion animation completes
     setTimeout(() => {
       navigate('/experience', { state: { startBlack: true } }); // Pass state to Experience
-    }, 500); // Match your CSS transition duration
+    }, 1000); // Match your CSS transition duration
   };
+
+
+  const handleNavigateToSkills = () => {
+    if (isTransitioning) return; // Prevent multiple triggers
+
+    setIsTransitioning(true);
+    setShowTransitionCircle(true);
+    setCircleState('expanding');
+    
+    // Navigate after expansion animation completes
+    setTimeout(() => {
+      navigate('/skills', { state: { startBlack: true } }); // Pass state to Experience
+    }, 1000); // Match your CSS transition duration
+  };
+
 
   return (
     <>
@@ -105,6 +120,7 @@ function HomePage() {
                 &#x1F9EA; Projects
               </button>
               <button
+                onClick={handleNavigateToSkills}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
                 className="common-button" // Common class

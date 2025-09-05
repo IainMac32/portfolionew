@@ -110,10 +110,16 @@
   border: 4px solid #1088ff;
   color: rgb(0, 0, 0);
   padding: 15px 15px 5px 15px;        /* bigger buttons */
+  width: 130px;
 
   font-size: 30px;
   border-radius: 12px;       /* rounded corners */
   cursor: pointer;
+  text-align: center;
+}
+
+.button-four p{
+  font-size: 25px;
 }
 
 .button-four:hover {

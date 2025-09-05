@@ -95,6 +95,21 @@ function HomePage() {
   };
 
 
+  const handleNavigateToProjects = () => {
+    if (isTransitioning) return; // Prevent multiple triggers
+
+    setIsTransitioning(true);
+    setShowTransitionCircle(true);
+    setCircleState('expanding');
+    
+    // Navigate after expansion animation completes
+    setTimeout(() => {
+      navigate('/projects', { state: { startBlack: true } }); // Pass state to Experience
+    }, 1000); // Match your CSS transition duration
+  };
+
+
+
   return (
     <>
       <div className="homepage-container">
@@ -113,6 +128,7 @@ function HomePage() {
                 &#x1F4BC; Experience
               </button>
               <button
+                onClick={handleNavigateToProjects}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
                 className="common-button" // Common class
@@ -135,6 +151,7 @@ function HomePage() {
                   className="button-four"
                 >
                   <img src={githublogo} alt="Github" />
+                  <p>Github</p>
                 </div>
                 <div
                   onMouseMove={handleMouseMove}
@@ -143,6 +160,7 @@ function HomePage() {
                   className="button-four"
                 >
                   <img src={linkedinlogo} alt="LinkedIn" />
+                  <p>LinkedIn</p>
                 </div>
                 <div
                   onMouseMove={handleMouseMove}
@@ -151,6 +169,7 @@ function HomePage() {
                   className="button-four"
                 >
                   <img src={resumelogo} alt="Resume" />
+                  <p>Resume</p>
                 </div>
               </div>
             </div>

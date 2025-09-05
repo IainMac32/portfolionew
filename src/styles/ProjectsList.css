@@ -1,0 +1,851 @@
+/* ProjectsList.css - Scoped with ProjectsList- prefix */
+
+/* Reset and general styles - scoped to component */
+.ProjectsList-component * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.ProjectsList-component html, 
+.ProjectsList-component body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Animated Background Styles */
+.ProjectsList-animated-background {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: -1000;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  --stripes: repeating-linear-gradient(100deg, #fff 0%, #fff 7%, transparent 10%, transparent 12%, #fff 16%);
+  --rainbow: repeating-linear-gradient(100deg, #c4dfff 10%, #f9d0ff 15%, #c4dfff 20%, #c2eae4 25%, #c4dfff 30%);
+  background-image: var(--stripes), var(--rainbow);
+  background-size: 300%, 200%;
+  background-position: 50% 50%, 50% 50%;
+  -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 100% 0%, rgb(0, 0, 0) 40%, transparent 70%);
+  filter: blur(10px) invert(100%);
+}
+
+.ProjectsList-animated-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: var(--stripes), var(--rainbow);
+  background-size: 200% 100%;
+  animation: ProjectsList-smoothBg 60s linear infinite;
+  background-attachment: fixed;
+  mix-blend-mode: difference;
+}
+
+@keyframes ProjectsList-smoothBg {
+  0% { background-position: 0% 0%, 0% 0%; }
+  50% { background-position: 100% 100%, 100% 100%; }
+  100% { background-position: 0% 0%, 0% 0%; }
+}
+
+/* Experience Container Styles */
+.ProjectsList-experience-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  min-height: 100vh;
+  padding: 1rem;
+  overflow: hidden;
+  perspective: 3000px;
+  background-color: #bddeff;
+}
+
+/* Left Image Styles */
+.ProjectsList-left-image {
+  max-height: 50vh;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-left: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Carousel Styles */
+.ProjectsList-experience-carousel-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  justify-content: center;
+  max-width: 1900px;
+  width: 100%;
+}
+
+.ProjectsList-carousel-arrow {
+  cursor: pointer;
+  padding: 1.5rem;
+  border-radius: 50%;
+  background: rgba(16, 136, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid #1088ff;
+  transition: all 0.3s ease;
+  color: #1088ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  min-height: 60px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.ProjectsList-carousel-arrow:hover {
+  background: rgba(16, 136, 255, 0.4);
+  box-shadow: 0 8px 16px rgba(16, 136, 255, 0.3);
+  border-color: #0066cc;
+}
+
+.ProjectsList-carousel-arrow:active {
+  transform: scale(0.95);
+}
+
+.ProjectsList-carousel-arrow svg {
+  transition: transform 0.2s ease;
+}
+
+.ProjectsList-carousel-arrow:hover svg {
+  transform: scale(1.1);
+}
+
+/* Experience Text Box Styles */
+.ProjectsList-experience-text-box {
+  transition: transform 0.15s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  background-color: #92c9ffad;
+  border: 4px solid #1088ff;
+  border-radius: 35px;
+  padding: 2rem;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  max-height: 660px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; /* Prevent content from going outside */
+}
+
+.ProjectsList-experience-home-container {
+  width: 1200px; /* Increased to accommodate wider content */
+  margin-bottom: 20px;
+}
+
+.ProjectsList-experience-text-box:hover {
+  box-shadow: 0 8px 16px rgba(16, 136, 255, 0.4);
+  transform: scale(1.1);
+}
+
+/* Three Column Layout */
+.ProjectsList-three-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 2rem;
+  flex-grow: 1;
+  overflow: hidden; /* Prevent overflow */
+  min-height: 0; /* Allow shrinking */
+}
+
+/* Left Column Styles */
+.ProjectsList-left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  border-right: 2px solid rgba(16, 136, 255, 0.3);
+  overflow: hidden; /* Prevent overflow */
+  min-height: 0; /* Allow shrinking */
+}
+
+.ProjectsList-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #000339;
+}
+
+.ProjectsList-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #000339;
+  font-weight: 600;
+}
+
+.ProjectsList-date-link {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #000339;
+  font-weight: 500;
+}
+
+.ProjectsList-github-link {
+  color: #1088ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.ProjectsList-github-link:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.ProjectsList-tech-stack {
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden; /* Prevent overflow */
+  display: flex;
+  flex-direction: column;
+}
+
+.ProjectsList-tech-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #000339;
+  font-weight: 600;
+  text-align: center;
+  flex-shrink: 0; /* Don't shrink the title */
+}
+
+.ProjectsList-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-top: 1rem;
+  overflow-y: auto; /* Add scroll if needed */
+  flex-grow: 0.5;
+}
+
+.ProjectsList-tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  border: 2px solid rgba(16, 136, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ProjectsList-tech-item:hover {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: #1088ff;
+}
+
+.ProjectsList-tech-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.ProjectsList-tech-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000339;
+}
+
+/* Middle Column Styles */
+.ProjectsList-middle-column {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-right: 2px solid rgba(16, 136, 255, 0.3);
+  overflow: hidden; /* Prevent overflow */
+  min-height: 0; /* Allow shrinking */
+}
+
+.ProjectsList-details-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #000339;
+  font-weight: 600;
+  text-align: center;
+  flex-shrink: 0; /* Don't shrink the title */
+}
+
+.ProjectsList-bullet-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto; /* Add scroll if content is too long */
+}
+
+.ProjectsList-bullet-points li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000339;
+}
+
+.ProjectsList-bullet-points li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #1088ff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Right Column Styles */
+.ProjectsList-right-column {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow: hidden; /* Prevent overflow */
+  min-height: 0; /* Allow shrinking */
+}
+
+.ProjectsList-images-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #000339;
+  font-weight: 600;
+  text-align: center;
+  flex-shrink: 0; /* Don't shrink the title */
+}
+
+.ProjectsList-project-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+  overflow-y: auto; /* Add scroll for images */
+  min-height: 0; /* Allow shrinking */
+}
+
+.ProjectsList-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 1rem;
+  border: 2px solid rgba(16, 136, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ProjectsList-image-container:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: #1088ff;
+}
+
+.ProjectsList-project-image {
+  width: 100%;
+  max-width: 280px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 136, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ProjectsList-project-image:hover {
+  transform: scale(1.05);
+  border-color: #1088ff;
+}
+
+.ProjectsList-image-caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #000339;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Image Modal Styles */
+.ProjectsList-image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: ProjectsList-modalFadeIn 0.3s ease-out;
+}
+
+@keyframes ProjectsList-modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ProjectsList-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ProjectsList-modal-close {
+  position: absolute;
+  top: -50px;
+  right: auto;
+
+  background-color: #92c9ffad;
+  border: 4px solid #1088ff;
+
+
+  border-radius: 25px;
+  width: 140px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  z-index: 10001;
+}
+
+.ProjectsList-modal-close:hover {
+  transform: scale(1.1);
+}
+
+.ProjectsList-modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #92c9ffad;
+  border: 4px solid #1088ff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s ease;
+  z-index: 10001;
+}
+
+.ProjectsList-modal-nav:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.ProjectsList-modal-nav--left {
+  left: -70px;
+}
+
+.ProjectsList-modal-nav--right {
+  right: -70px;
+}
+
+.ProjectsList-modal-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.ProjectsList-modal-image {
+  max-width: 80vw;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.ProjectsList-modal-caption {
+  margin-top: 1rem;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.ProjectsList-modal-caption h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #1088ff;
+}
+
+.ProjectsList-modal-caption p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Text Animation Classes */
+.ProjectsList-experience-text-box--fading-out {
+  animation: ProjectsList-fadeOutText 0.3s ease-out forwards;
+}
+
+.ProjectsList-experience-text-box--fading-in {
+  animation: ProjectsList-fadeInText 0.4s ease-in forwards;
+}
+
+@keyframes ProjectsList-fadeOutText {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes ProjectsList-fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Experience Indicators (Dots) */
+.ProjectsList-experience-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(16, 136, 255, 0.3);
+}
+
+.ProjectsList-indicator-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(16, 136, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.ProjectsList-indicator-dot:hover {
+  background: rgba(16, 136, 255, 0.6);
+  transform: scale(1.1);
+}
+
+.ProjectsList-indicator-dot--active {
+  background: #1088ff;
+  transform: scale(1.3);
+  border-color: #0066cc;
+  box-shadow: 0 0 8px rgba(16, 136, 255, 0.6);
+}
+
+/* Transition Circle Styles */
+.ProjectsList-transition-circle {
+  position: fixed;
+  background-color: #1088ff;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ProjectsList-transition-circle--covering {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Expanding state: animate from 0 to full screen */
+.ProjectsList-transition-circle--expanding {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  animation: ProjectsList-expandFromCenter 0.5s ease-in-out forwards;
+}
+
+@keyframes ProjectsList-expandFromCenter {
+  0% {
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.ProjectsList-transition-circle--shrinking {
+  top: 50%;
+  left: 50%;
+  animation: ProjectsList-shrinkToCenter 0.5s ease-in-out forwards;
+}
+
+@keyframes ProjectsList-shrinkToCenter {
+  0% {
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+/* Hidden state */
+.ProjectsList-transition-circle--hidden {
+  display: none;
+}
+
+/* Home Button Styles */
+.ProjectsList-home-button-experiences {
+  transition: transform 0.15s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  background-color: #92c9ffad;
+  border: 4px solid #1088ff;
+  border-radius: 25px;
+  padding: 1.0rem;
+  color: rgb(0, 0, 0);
+  width: 30%;
+  height: 4.0rem;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.ProjectsList-home-button-experiences:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .ProjectsList-experience-carousel-container {
+    gap: 2rem;
+  }
+  
+  .ProjectsList-carousel-arrow {
+    padding: 1rem;
+    min-width: 50px;
+    min-height: 50px;
+  }
+  
+  .ProjectsList-experience-text-box {
+    min-height: 600px;
+    padding: 1.5rem;
+  }
+  
+  .ProjectsList-experience-home-container {
+    width: 1200px;
+  }
+  
+  .ProjectsList-three-column-layout {
+    gap: 1.5rem;
+  }
+  
+  .ProjectsList-tech-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ProjectsList-title {
+    font-size: 1.6rem;
+  }
+  
+  .ProjectsList-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ProjectsList-experience-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+  }
+  
+  .ProjectsList-left-image {
+    margin-left: 0;
+    max-height: 30vh;
+  }
+  
+  .ProjectsList-experience-carousel-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 95%;
+  }
+  
+  .ProjectsList-carousel-arrow {
+    display: none; /* Hide arrows on mobile, use dots only */
+  }
+  
+  .ProjectsList-experience-home-container {
+    width: 100%;
+  }
+  
+  .ProjectsList-experience-text-box {
+    min-height: 500px;
+    padding: 1.2rem;
+    max-width: 100%;
+  }
+  
+  .ProjectsList-three-column-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1.5rem;
+  }
+  
+  .ProjectsList-left-column,
+  .ProjectsList-middle-column {
+    border-right: none;
+    border-bottom: 2px solid rgba(16, 136, 255, 0.3);
+    padding-bottom: 1rem;
+  }
+  
+  .ProjectsList-right-column {
+    border-bottom: none;
+  }
+  
+  .ProjectsList-title {
+    font-size: 1.4rem;
+  }
+  
+  .ProjectsList-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .ProjectsList-bullet-points li {
+    font-size: 0.95rem;
+  }
+  
+  .ProjectsList-project-images {
+    max-height: 300px;
+  }
+  
+  .ProjectsList-project-image {
+    height: 120px;
+  }
+  
+  .ProjectsList-experience-indicators {
+    gap: 1rem;
+  }
+  
+  .ProjectsList-indicator-dot {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ProjectsList-experience-text-box {
+    padding: 1rem;
+    min-height: 450px;
+  }
+  
+  .ProjectsList-three-column-layout {
+    gap: 1rem;
+  }
+  
+  .ProjectsList-title {
+    font-size: 1.3rem;
+  }
+  
+  .ProjectsList-subtitle {
+    font-size: 1rem;
+  }
+  
+  .ProjectsList-bullet-points li {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .ProjectsList-tech-name {
+    font-size: 0.8rem;
+  }
+  
+  .ProjectsList-tech-icon {
+    font-size: 1.3rem;
+  }
+  
+  .ProjectsList-project-image {
+    height: 100px;
+  }
+  
+  .ProjectsList-modal-nav--left {
+    left: -40px;
+  }
+  
+  .ProjectsList-modal-nav--right {
+    right: -40px;
+  }
+  
+  .ProjectsList-modal-nav {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .ProjectsList-modal-image {
+    max-width: 90vw;
+    max-height: 60vh;
+  }
+  
+  .ProjectsList-modal-close {
+    top: -40px;
+    right: 0;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .ProjectsList-modal-caption {
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+  }
+  
+  .ProjectsList-modal-caption h3 {
+    font-size: 1rem;
+  }
+  
+  .ProjectsList-modal-caption p {
+    font-size: 0.8rem;
+  }
+  
+  .ProjectsList-image-caption {
+    font-size: 0.8rem;
+  }
+}

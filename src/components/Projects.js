@@ -1,12 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import '../styles/Projects.css';
-import image from '../assets/IainPhoto.png';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import artSuggester from '../assets/ArtSuggester.jpg';
 import justTheInstructions from '../assets/JustTheInstructions.jpg';
 import secondBrain from '../assets/SecondBrain.jpg';
 import sparkSlides from '../assets/SparkSlides.jpg';
+import portfolioHome from '../assets/portfolioHome.png';
+
 
 function Projects() {
     const boxRef1 = useRef(null);
@@ -14,7 +15,6 @@ function Projects() {
     const boxRef3 = useRef(null);
     const boxRef4 = useRef(null);
     const boxRef5 = useRef(null);
-    const boxRef6 = useRef(null);
 
     const transitionCircleRef = useRef(null);
     const location = useLocation();
@@ -106,7 +106,7 @@ function Projects() {
                                 onMouseLeave={handleMouseLeave(boxRef1)}
                                 onClick={handleNavigateToExperience(0)}
                             >
-                                <img src={artSuggester} alt="FirstOntario Logo" className="project-button-image" />
+                                <img src={artSuggester} alt="artSuggester" className="project-button-image" />
                                 <h1 className="project-title">Art Suggester AI</h1>
                                 <p className="project-description">Full-stack app that recommends art based on art supplies — McMaster AI Society project.</p>
                             </div>
@@ -117,7 +117,7 @@ function Projects() {
                                 onMouseLeave={handleMouseLeave(boxRef2)}
                                 onClick={handleNavigateToExperience(1)}
                             >
-                                <img src={justTheInstructions} alt="MacAI Logo" className="project-button-image" />
+                                <img src={justTheInstructions} alt="justTheInstructions" className="project-button-image" />
                                 <h1 className="project-title">Just The Instructions</h1>
                                 <p className="project-description">Google Chrome extension that filters recipe websites.</p>
                             </div>
@@ -128,7 +128,7 @@ function Projects() {
                                 onMouseLeave={handleMouseLeave(boxRef3)}
                                 onClick={handleNavigateToExperience(2)}
                             >
-                                <img src={secondBrain} alt="GDG Logo" className="project-button-image" />
+                                <img src={secondBrain} alt="secondBrain" className="project-button-image" />
                                 <h1 className="project-title">SecondBrain</h1>
                                 <p className="project-description">Full-stack app for easy document search and answers — McMaster AI Society project.</p>
                             </div>
@@ -139,7 +139,7 @@ function Projects() {
                                 onMouseLeave={handleMouseLeave(boxRef4)}
                                 onClick={handleNavigateToExperience(3)}
                             >
-                                <img src={sparkSlides} alt="TutorAI Logo" className="project-button-image" />
+                                <img src={sparkSlides} alt="sparkSlides" className="project-button-image" />
                                 <h1 className="project-title">SparkSlides</h1>
                                 <p className="project-description">A McMaster Google Hackathon project that automates slide show creation.</p>
                             </div>
@@ -150,7 +150,7 @@ function Projects() {
                                 onMouseLeave={handleMouseLeave(boxRef5)}
                                 onClick={handleNavigateToExperience(4)}
                             >
-                                <img src={sparkSlides} alt="StemCamp Logo" className="project-button-image" />
+                                <img src={portfolioHome} alt="Porfolio Home" className="project-button-image" />
                                 <h1 className="project-title">Portfolio Website</h1>
                                 <p className="project-description">My React.js portfolio website.</p>
                             </div>

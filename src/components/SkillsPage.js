@@ -24,69 +24,63 @@ const front_end_images = [ReactJS, CssHtmlLogo, JSLogo];
 // Skill details data
 const skillDetails = {
     "Python": {
-        title: "Python",
-        description: "Proficient in Python for backend development, data analysis, and machine learning. Experienced with frameworks like Django and Flask, as well as libraries for data science and automation.",
-        projects: ["Web scraping automation", "Data analysis dashboards", "REST API development", "Machine learning models"]
+        title: "Python - 6 years",
+        description: "Python is likely my strongest coding language, as I have been using it since I was about 14 and continue to use it within AI. Some libraries that I am continuously using for my AI projects are: TensorFlow, PIL, Pandas, NumPy, and Matplotlib.",
+        projects: ["Art Suggester AI", "Ocular Disease Identifier", "Just The Instructions", "SecondBrain", "SparkSlides"]
     },
     "Flask": {
-        title: "Flask",
+        title: "Flask - 3 years",
         description: "Skilled in building lightweight web applications and APIs using Flask. Experience with routing, templating, database integration, and deployment.",
-        projects: ["RESTful API services", "Web application backends", "Microservices architecture", "Database integration"]
+        projects: ["Art Suggester AI", "Ocular Disease Identifier", "SecondBrain", "SparkSlides"]
     },
     "Java": {
-        title: "Java",
-        description: "Strong foundation in Java for enterprise applications, object-oriented programming, and software development. Familiar with Spring framework and Maven.",
-        projects: ["Enterprise web applications", "Desktop applications", "Database connectivity", "API integrations"]
+        title: "Java - 2 years",
+        description: "Strong foundation in Java for object-oriented programming, and data structures and algorithms.",
+        projects: ["Data Structures and Algorithms Class"]
     },
     "C": {
-        title: "C",
-        description: "Solid understanding of C programming for system-level programming and algorithms. Experience with memory management, pointers, and data structures.",
-        projects: ["System programming", "Algorithm implementations", "Data structure libraries", "Performance optimization"]
+        title: "C - 1 year",
+        description: "Solid understanding of C programming for system-level programming and algorithms. Experience with memory management and pointers.",
+        projects: ["Development Basics Class"]
     },
     "TensorFlow": {
-        title: "TensorFlow",
-        description: "Experience building and training machine learning models using TensorFlow. Familiar with neural networks, deep learning, and model deployment.",
-        projects: ["Image classification models", "Natural language processing", "Predictive analytics", "Model optimization"]
+        title: "TensorFlow - 2 years",
+        description: "Experience building and training machine learning models using TensorFlow. Familiar with neural networks and deep learning.",
+        projects: ["Art Suggester AI", "Ocular Disease Identifier", "Just The Instructions"]
     },
     "NumPy": {
-        title: "NumPy",
-        description: "Proficient in NumPy for numerical computing and data manipulation. Extensive use in data analysis, scientific computing, and machine learning preprocessing.",
-        projects: ["Data preprocessing pipelines", "Statistical analysis", "Mathematical computations", "Array operations"]
+        title: "NumPy - 2 years",
+        description: "Proficient in NumPy for data manipulation. Extensive use in machine learning preprocessing.",
+        projects: ["Art Suggester AI"]
     },
     "SQL": {
-        title: "SQL",
-        description: "Strong database skills with SQL for data querying, database design, and optimization. Experience with PostgreSQL, MySQL, and complex query optimization.",
-        projects: ["Database design", "Query optimization", "Data warehousing", "Reporting systems"]
+        title: "SQL - 1 year",
+        description: "Strong database skills with SQL for data querying, database design, and optimization. Experience with MySQL",
+        projects: ["Databases Class"]
     },
     "MongoDB": {
-        title: "MongoDB",
-        description: "Experience with MongoDB for NoSQL database solutions. Skilled in document-based data modeling, aggregation pipelines, and performance optimization.",
-        projects: ["Document storage systems", "Real-time analytics", "Scalable web applications", "Data aggregation"]
+        title: "MongoDB - 2 years",
+        description: "Experience with MongoDB for NoSQL database solutions. Skilled in performance optimization.",
+        projects: ["Art Suggester AI", "Ocular Disease Identifier"]
     },
     "Reactjs": {
-        title: "React.js",
-        description: "Experienced in building modern, responsive web applications using React. Proficient with hooks, state management, and component architecture.",
-        projects: ["Single-page applications", "Interactive dashboards", "Component libraries", "State management solutions"]
+        title: "React.js - 2 years",
+        description: "Experienced in building modern, responsive web applications using React.",
+        projects: ["Art Suggester AI","Personal Portfolio"]
     },
     "CSS/HTML": {
-        title: "CSS/HTML",
-        description: "Strong foundation in HTML5 and CSS3 for creating responsive, accessible web interfaces. Experience with modern CSS features and responsive design.",
-        projects: ["Responsive web designs", "CSS animations", "Accessible interfaces", "Cross-browser compatibility"]
+        title: "CSS/HTML - 2 years",
+        description: "Strong foundation in HTML and CSS for creating responsive, accessible web interfaces.",
+        projects: ["Art Suggester AI","Personal Portfolio"]
     },
     "JavaScript": {
-        title: "JavaScript",
-        description: "Proficient in modern JavaScript (ES6+) for both frontend and backend development. Experience with asynchronous programming, DOM manipulation, and modern frameworks.",
-        projects: ["Interactive web applications", "API integrations", "DOM manipulation", "Async programming"]
+        title: "JavaScript - 2 years",
+        description: "Proficient in modern JavaScript for both frontend and backend development.",
+        projects: ["Art Suggester AI","Personal Portfolio"]
     }
 };
 
 function SkillsPage() {
-    const boxRef1 = useRef(null);
-    const boxRef2 = useRef(null);
-    const boxRef3 = useRef(null);
-    const boxRef4 = useRef(null);
-    const boxRef5 = useRef(null);
-    const boxRef6 = useRef(null);
 
     const transitionCircleRef = useRef(null);
     const location = useLocation();
@@ -105,6 +99,19 @@ function SkillsPage() {
     
     // Ref for the skill details element
     const skillDetailsRef = useRef(null);
+
+    /*const handleNavigateToProjects = (pageToGoTo) => () => {
+        if (isTransitioning) return;
+        
+        setIsTransitioning(true);
+        setShowTransitionCircle(true);
+        setCircleState('project-expanding');
+        
+        // Navigate after expansion animation completes
+        setTimeout(() => {
+            navigate('/projectsList', { state: { startBlack: true, page: pageToGoTo } });
+        }, 1000); // Match your CSS transition duration
+    }; */
     
     useEffect(() => {
         if (shouldStartWithTransition) {
@@ -169,7 +176,7 @@ function SkillsPage() {
         }
     };
 
-    const handleNavigateToExperience = (pageToGoTo) => () => {
+    /*const handleNavigateToExperience = (pageToGoTo) => () => {
         if (isTransitioning) return;
         
         setIsTransitioning(true);
@@ -180,7 +187,7 @@ function SkillsPage() {
         setTimeout(() => {
             navigate('/firstontario', { state: { startBlack: true, page: pageToGoTo } });
         }, 1000); // Match your CSS transition duration
-    };
+    }; */
 
     const handleNavigateToHome =  () => {
         if (isTransitioning) return;

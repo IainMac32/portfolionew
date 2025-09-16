@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import '../styles/ProjectsList.css';
 
 import artsuggesterMain from '../assets/ArtSuggester.jpg';
@@ -17,6 +17,8 @@ import sparkslidesMain from '../assets/SparkSlides.jpg'
 import sparkslides1 from '../assets/sparksslides1.jpeg';
 import sparkslides2 from '../assets/sparkslides2.jpeg';
 
+import portfolioHome from '../assets/portfolioHome.png';
+
 
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -31,45 +33,45 @@ function ProjectsList() {
   const experiences = [
     {
       title: "Art Suggester AI",
-      subtitle: "Junior Security Analyst",
-      date: "2025 Apr - Present",
-      linkText: "GitHub",
-      linkUrl: "",   // or your repo URL  
-      techStack: [
-        { name: "Python", icon: "🐍" },
-        { name: "Cybersecurity", icon: "🔒" },
-        { name: "Network Analysis", icon: "🌐" }
-      ],
-      bullets: [
-        "Point 1",
-        "Point 2",
-        "Point 3"
-      ],
-      projectImages: [
-        { src: artsuggesterMain, alt: "Art Suggester Main" },
-        { src: artsuggester1, alt: "Art Suggester 1" },
-        { src: artsuggester2, alt: "Art Suggester 1" },
-      ]
-    },
-    {
-      title: "Just The Instructions",
-      subtitle: "Project Lead & Software Developer",
-      date: "2023 Oct - Present",
+      subtitle: "Team Lead",
+      date: "2024 Sep - 2025 Mar",
       linkText: "GitHub",
       linkUrl: "https://github.com/McMasterAI2024-2025/ArtSuggesterAI",   // or your repo URL  
       techStack: [
         { name: "Python", icon: "🐍" },
         { name: "TensorFlow", icon: "🧠" },
-        { name: "CNN", icon: "🔮" },
+        { name: "Convolutional Neural Network", icon: "📷" },
         { name: "React", icon: "⚛️" }
       ],
       bullets: [
-        "Led a team of 6 to develop an AI-based art recommendation tool, optimizing image recognition techniques within a convolutional neural network trained on a dataset of 4,000+ images across various mediums, achieving an accuracy of 92%.",
-        "Oversaw front and back-end progress, improving efficiency through targeted task assignments while encouraging collaboration and communication in weekly meetings, ensuring all deadlines were met at least a week early.",
-        "Previously a software developer to a Python-based document Q&A tool using Large Language Models, Vector Databases, and Similarity Search APIs, presenting at the Canadian Undergraduate Conference on AI which led to a collaboration with the Tutor.AI startup."
+        "Our team of 7 created a project that allows users to take pictures of paint, pencil crayons, or markers they have and suggests art they can create with the colours and medium they took a photo of.",
+        "The project utilized Python, TensorFlow, PIL for the backend to detect the medium and colours in the photo. For the frontend React.js, and Firebase helped make a user-friendly website.",
+        "Led weekly meetings to discuss progress on the front and back end, assign tasks, and ensure deadlines were being met."
       ],
       projectImages: [
-        { src: justtheinstructionsMain, alt: "Just The Instructions Main" },
+        { src: artsuggesterMain, alt: "Art Suggester Team" },
+        { src: artsuggester1, alt: "Art Suggester 1" },
+        { src: artsuggester2, alt: "Art Suggester 2" },
+      ]
+    },
+    {
+      title: "Just The Instructions",
+      subtitle: "Software Developer",
+      date: "2024 May - 2025 Jul",
+      linkText: "GitHub",
+      linkUrl: "https://github.com/kristiandiana/JustTheInstructions",   // or your repo URL  
+      techStack: [
+        { name: "Python", icon: "🐍" },
+        { name: "TensorFlow", icon: "🧠" },
+        { name: "Convolutional Neural Network", icon: "📷" }
+      ],
+      bullets: [
+        "Developed JustTheInstructions, a Chrome extension that automatically extracts clean, step-by-step instructions from recipe and tutorial pages, removing ads and unnecessary content for a faster user experience.",
+        "Collected a dataset of ~1M labeled sentences by scraping 5,000+ instructional websites across 5 categories, enabling training and validation of a custom NLP model with 99.6% test accuracy on 100k sentences.",
+        "Delivered a lightweight, fast, and fully local solution that powers instant instruction extraction, earning 60+ five-star ratings on the Chrome Web Store."
+      ],
+      projectImages: [
+        { src: justtheinstructionsMain, alt: "Just The Instructions Main Page" },
         { src: justtheinstructions1, alt: "Just The Instructions 1" },
         { src: justtheinstructions2, alt: "Just The Instructions 2" },
         { src: justtheinstructions3, alt: "Just The Instructions 3" }
@@ -78,91 +80,67 @@ function ProjectsList() {
     {
       title: "Second Brain",
       subtitle: "Software Developer",
-      date: "2024 Sep - Present",
+      date: "2023 Oct - 2024 Mar",
       linkText: "GitHub",
-      linkUrl: "https://github.com/DSC-McMaster-U/Ocular-Disease-Identifier",   // or your repo URL  
+      linkUrl: "https://github.com/McMasterAI/Second-Brain",   // or your repo URL  
       techStack: [
         { name: "Python", icon: "🐍" },
-        { name: "Machine Learning", icon: "🤖" },
-        { name: "OpenCV", icon: "👁️" },
-        { name: "Database", icon: "🗄️" }
+        { name: "Database", icon: "🗄️" },
+        { name: "Vectorization", icon: "🧮" },
+
       ],
       bullets: [
-        "Contributed to developing an AI Ocular Disease Identifier for eye scans, designed for potential use in medical diagnostics.",
-        "Collaborated within a team of 10 to implement machine learning and database integration.",
-        "Coordinated through sprints to meet tight deadlines, consistently completing tasks days ahead of schedule."
+        "Developed a Python based document Q&A tool leveraging Large Language Models, Vector Databases, and Similarity Search APIs.",
+        "Contributed to team sessions within a group of 7, focusing on techniques to improve user interaction and response accuracy.",
+        "Presented at the Canadian Undergraduate Conference on AI, which led to a collaboration with the Tutor.AI startup."
       ],
       projectImages: [
-        { src: secondbrainMain, alt: "SecondBrain Main" },
+        { src: secondbrainMain, alt: "SecondBrain Team" },
         { src: secondbrain1, alt: "SecondBrain 1" },
       ]
     },
     {
       title: "SparkSlides",
-      subtitle: "Software Consultant",
-      date: "2024 Mar - 2024 Aug",
+      subtitle: "Hackathon Project",
+      date: "2024 Feb",
       linkText: "GitHub",
       linkUrl: "",   // or your repo URL  
       techStack: [
         { name: "Python", icon: "🐍" },
         { name: "AI", icon: "🤖" },
-        { name: "Backend", icon: "⚙️" },
-        { name: "Optimization", icon: "📈" }
+        { name: "React.js", icon: "⚛️" },
       ],
       bullets: [
-        "Reviewed and optimized backend code for a startup's AI tutor student matching system, speeding up development by 2 weeks.",
-        "Analyzed program flow, algorithms, and vectorization techniques providing recommendations to boost efficiency and matching accuracy.",
-        "Collaborated closely with project leads in weekly meetings and daily check ins."
+        "Won 1st place in the Equality & Accessibility category at the Google Developer Groups McMaster Hackathon, competing against 175+ participants over a 26-hour event.",
+        "Developed SparkSlides, an AI-powered tool that automates slideshow creation by integrating Google Slides, Google Drive, Google Image Search APIs, and OpenAI's WhisperAI and GPT-4.",
+        "Delivered a fully formatted presentation generator that supports the United Nations Sustainable Development Goals, producing slides with titles, bullet points, and relevant images from just a topic input."
       ],
       projectImages: [
-        { src: sparkslidesMain, alt: "SparkSlides Main" },
+        { src: sparkslidesMain, alt: "SparkSlides Team" },
         { src: sparkslides1, alt: "SparkSlides 1" },
         { src: sparkslides2, alt: "SparkSlides 2" }
       ]
     },
     {
       title: "Portfolio Website",
-      subtitle: "Camp Counselor",
-      date: "2024 May - 2024 Aug",
+      subtitle: "",
+      date: "2025 Jun - Present",
       linkText: "GitHub",
       linkUrl: "",   // or your repo URL  
       techStack: [
-        { name: "Python", icon: "🐍" },
-        { name: "Scratch", icon: "🧩" },
-        { name: "Robotics", icon: "🤖" },
-        { name: "3D Printing", icon: "🖨️" }
-      ],
+        { name: "React.js", icon: "⚛️" },
+        { name: "HTML", icon: "🌐" },
+        { name: "CSS", icon: "🎨" }
+                ],
       bullets: [
-        "Designed and led STEM activities for ages 5-14, teaching Python, Scratch coding, robotics, and 3D printing through hands-on learning.",
-        "Developed leadership, communication, and adaptability by addressing camper needs, and creating an engaging learning environment.",
+        "Applied React.js, HTML, and CSS to develop a personal portfolio website.",
+        "This task involved mastering intricate details and implementing these technologies to create a user-friendly and visually appealing interface. It also showcases a diverse array of React.js techniques that can be transferred to other front-end projects.",
       ],
       projectImages: [
-        { src: "/api/placeholder/300/200", alt: "STEM Activities" },
-        { src: "/api/placeholder/300/200", alt: "Student Projects" }
+        { src: portfolioHome, alt: "Check out the website!" },
       ]
     },
-    {
-      title: "Digital Fire",
-      subtitle: "IT Co-op Placement",
-      date: "2022 Feb - 2022 Jun",
-      linkText: "GitHub",
-      linkUrl: "",   // or your repo URL  
-      techStack: [
-        { name: "Hardware", icon: "🔧" },
-        { name: "Software", icon: "💿" },
-        { name: "Inventory System", icon: "📦" },
-        { name: "IT Support", icon: "🖥️" }
-      ],
-      bullets: [
-        "Applied technical skills with precision to successfully set up, configure, and upgrade laptops and desktops, integrating hardware and software components to ensure optimal system performance and long-term reliability.",
-        "Acquired coding proficiency to develop an office inventory system, resulting in improved organization and operational efficiency.",
-        "Played a key role in important projects by working on hardware construction, and enhancing overall technology."
-      ],
-      projectImages: [
-        { src: "/api/placeholder/300/200", alt: "Hardware Setup" },
-        { src: "/api/placeholder/300/200", alt: "Inventory System Interface" }
-      ]
-    }
+
   ];
 
   const startPage = location.state?.page || 0;
@@ -267,27 +245,30 @@ function ProjectsList() {
     setSelectedImageIndex(null);
   };
 
-  const handleNextImage = () => {
+  // Move currentExperience definition BEFORE the useCallback hooks
+  const currentExperience = experiences[currentExperienceIndex];
+
+  const handleNextImage = useCallback(() => {
     const totalImages = currentExperience.projectImages.length;
     setSelectedImageIndex((prev) => (prev + 1) % totalImages);
-  };
+  }, [currentExperience.projectImages.length]);
 
-  const handlePrevImage = () => {
+  const handlePrevImage = useCallback(() => {
     const totalImages = currentExperience.projectImages.length;
     setSelectedImageIndex((prev) => (prev - 1 + totalImages) % totalImages);
-  };
-
-  const handleModalKeyPress = (e) => {
-    if (e.key === 'Escape') {
-      handleCloseModal();
-    } else if (e.key === 'ArrowRight') {
-      handleNextImage();
-    } else if (e.key === 'ArrowLeft') {
-      handlePrevImage();
-    }
-  };
+  }, [currentExperience.projectImages.length]);
 
   useEffect(() => {
+    const handleModalKeyPress = (e) => {
+      if (e.key === 'Escape') {
+        handleCloseModal();
+      } else if (e.key === 'ArrowRight') {
+        handleNextImage();
+      } else if (e.key === 'ArrowLeft') {
+        handlePrevImage();
+      }
+    };
+
     if (showImageModal) {
       document.addEventListener('keydown', handleModalKeyPress);
       document.body.style.overflow = 'hidden';
@@ -300,9 +281,7 @@ function ProjectsList() {
       document.removeEventListener('keydown', handleModalKeyPress);
       document.body.style.overflow = 'auto';
     };
-  }, [showImageModal, selectedImageIndex]);
-
-  const currentExperience = experiences[currentExperienceIndex];
+  }, [showImageModal, selectedImageIndex, handleNextImage, handlePrevImage]);
 
   return (
     <div className="ProjectsList-experience-container ProjectsList-component">

@@ -15,13 +15,14 @@ function Firstontario() {
     {
       title: "FirstOntario Credit Union",
       subtitle: "Junior Security Analyst",
-      date: "2025 Apr - Present",
+      date: "2025 Apr - 2026 Apr",
       linkText: "GitHub",
       linkUrl: "",   // or your repo URL  
       bullets: [
-        "Point 1",
-        "Point 2",
-        "Point 3"
+        "Resolved 500+ security-related tickets, reducing turnaround time for business-as-usual tasks by 60%.",
+        "Built and maintained security dashboards and supported projects to uphold the company’s ISO certification.",
+        "Integrated REST APIs to develop dashboards that tracked key security metrics, improving company-wide visibility and risk management.",
+        "Streamlined the quarterly employee access attestation process, reducing workload by 80% and saving 30+ hours per quarter."
       ]
     },
     {
@@ -43,9 +44,9 @@ function Firstontario() {
       linkText: "GitHub",
       linkUrl: "https://github.com/DSC-McMaster-U/Ocular-Disease-Identifier",   // or your repo URL  
       bullets: [
-        "Contributed to developing an AI Ocular Disease Identifier for eye scans, designed for potential use in medical diagnostics.",
-        "Collaborated within a team of 10 to implement machine learning and database integration.",
-        "Coordinated through sprints to meet tight deadlines, consistently completing tasks days ahead of schedule."
+        "The team of 10 worked on an Ocular Disease Identifier that uses AI to detect disease in fundus images.",
+        "The project utilizes Python, TensorFlow, and PIL for the backend and React.js for the frontend.",
+        "Communicated during weekly meetings to discuss progress and completed 2 - 3 week sprints to meet deadlines."
       ]
     },
     {
@@ -81,9 +82,8 @@ function Firstontario() {
       linkUrl: "",   // or your repo URL  
 
       bullets: [
-        "Applied technical skills with precision to successfully set up, configure, and upgrade laptops and desktops, integrating hardwareand software components to ensure optimal system performance and long-term reliability.",
-        "Acquired coding proficiency to develop an office inventory system, resulting in improved organization and operational efficiency.",
-        "Played a key role in important projects by working on hardware construction, and enhancing overall technology."
+        "Configured and upgraded laptops and computers, improving efficiency for hardware and software integration. ",
+        "Developed a custom inventory system, cutting storage update times from ~3 minutes to ~45 seconds, boosting office productivity.",
       ]
     }
   ];

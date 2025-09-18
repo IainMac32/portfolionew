@@ -1,6 +1,16 @@
 import React, { useRef, useEffect, useState } from 'react';
 import '../styles/Experience.css';
+
+
 import image from '../assets/IainPhoto.png';
+import AIimage from '../assets/AIIainPhoto.PNG';
+import Campimage from '..assets/CampIainPhoto.PNG;'
+import FCUimage from '../assets/FCUIainPhoto.PNG';
+import Googleimage from '../assets/GoogleIainPhoto.PNG;'
+import PCimage from '../assets/PCIainPhoto.png;'
+
+
+
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import firstOntarioLogo from '../assets/firstontarioLogo2.png';

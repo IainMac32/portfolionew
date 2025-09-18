@@ -4,10 +4,10 @@ import '../styles/Experience.css';
 
 import image from '../assets/IainPhoto.png';
 import AIimage from '../assets/AIIainPhoto.PNG';
-import Campimage from '..assets/CampIainPhoto.PNG;'
+import Campimage from '..assets/CampIainPhoto2.png';
 import FCUimage from '../assets/FCUIainPhoto.PNG';
-import Googleimage from '../assets/GoogleIainPhoto.PNG;'
-import PCimage from '../assets/PCIainPhoto.png;'
+import Googleimage from '../assets/GoogleIainPhoto.PNG';
+import PCimage from '../assets/PCIainPhoto.png';
 
 
 

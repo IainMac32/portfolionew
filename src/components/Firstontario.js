@@ -1,6 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import '../styles/Firstontario.css';
-import image from '../assets/IainPhoto.png';
+
+import AIimage from '../assets/AIIainPhoto.PNG';
+import FCUimage from '../assets/FCUIainPhoto.PNG';
+import Googleimage from '../assets/GoogleIainPhoto.PNG';
+import PCimage from '../assets/PCIainPhoto.png';
+import Campimage from '../assets/CampIainPhoto2.png';
+import Tutorimage from '../assets/TutorIainPhoto2.png';
+
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,6 +20,7 @@ function Firstontario() {
   // Experience data
   const experiences = [
     {
+      img: FCUimage,
       title: "FirstOntario Credit Union",
       subtitle: "Junior Security Analyst",
       date: "2025 Apr - 2026 Apr",
@@ -26,6 +34,7 @@ function Firstontario() {
       ]
     },
     {
+      img: AIimage,
       title: "McMaster AI Society",
       subtitle: "Project Lead & Software Developer",
       date: "2023 Oct - Present",
@@ -38,6 +47,7 @@ function Firstontario() {
       ]
     },
     {
+      img: Googleimage,
       title: "Google Developer Groups",
       subtitle: "Software Developer",
       date: "2024 Sep - Present",
@@ -50,6 +60,7 @@ function Firstontario() {
       ]
     },
     {
+      img: Tutorimage,
       title: "Tutor.AI",
       subtitle: "Software Consultant",
       date: "2024 Mar - 2024 Aug",
@@ -63,6 +74,7 @@ function Firstontario() {
       ]
     },
     {
+      img: Campimage,
       title: "STEM Camp & Steamoji",
       subtitle: "Camp Counselor",
       date: "2024 May - 2024 Aug",
@@ -75,6 +87,7 @@ function Firstontario() {
       ]
     },
     {
+      img: PCimage,
       title: "Digital Fire",
       subtitle: "IT Co-op Placement",
       date: "2022 Feb - 2022 Jun",
@@ -179,7 +192,10 @@ function Firstontario() {
   };
 
   const currentExperience = experiences[currentExperienceIndex];
-
+  console.log('currentExperience.img:', currentExperience.img);
+  console.log('Campimage:', Campimage);
+  console.log('Are they equal?', currentExperience.img === Campimage);
+  
   return (
     <div className="fo-experience-container fo-component">
       <div className="fo-animated-background"></div>
@@ -194,7 +210,12 @@ function Firstontario() {
       
       {showContent && (
         <>
-          <img src={image} alt="Iain" className="fo-left-image" />
+        
+          <img 
+            src={currentExperience.img} 
+            alt="Iain" 
+            className={currentExperience.img === Campimage ? "fo-left-image-small" : "fo-left-image"} 
+          />
           <div className="fo-experience-carousel-container">
             
             {/* Left Arrow */}

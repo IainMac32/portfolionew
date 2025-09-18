@@ -116,7 +116,12 @@ function HomePage() {
         <div id="animated-background"></div>
         {showContent && (
           <>
-            <img src={image} alt="Iain" className="left-image-home" />
+            <div className='intro'>
+              <img src={image} alt="Iain" className="left-image-home" />
+              <h1>
+                This will be my description of myselfThis will be my description of myselfThis will be my description of myselfThis will be my description of myselfThis will be my description of myself
+              </h1>
+            </div>
             <div className="button-group">
               <button
                 onClick={handleNavigateToExperience}

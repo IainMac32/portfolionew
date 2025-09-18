@@ -3,11 +3,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+
   }
   
-  html, body {
+  html, body, #root, .App {
     height: 100%;
-    overflow-x: hidden; /* prevent horizontal scrollbar */
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
   }
 
 
@@ -67,18 +71,36 @@
 }
   
   .left-image-home {
-    max-height: 50vh;
+    max-height: 55vh;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
-    margin-left: 300px; /* keep the image shifted left */
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Remove text-align: center from here */
+    margin-left: 200px;
+    margin-top: -90px;
+  }
+  
+  .intro h1 {
+    max-width: 480px;
+    text-align: center;
+    margin: 0;
+    font-size: 22px; /* or whatever size you want */
+    font-weight: normal; /* removes bold */
   }
   
 .button-group {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-left: 130px;  /* push buttons right */
+  margin-left: 110px;  /* push buttons right */
 }
 
 

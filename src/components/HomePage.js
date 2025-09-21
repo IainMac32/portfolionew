@@ -119,7 +119,8 @@ function HomePage() {
             <div className='intro'>
               <img src={image} alt="Iain" className="left-image-home" />
               <h1>
-                This will be my description of myselfThis will be my description of myselfThis will be my description of myselfThis will be my description of myselfThis will be my description of myself
+                Hi! My name is Iain, an aspiring AI software developer with experience in computer vision, natural language processing, and applied machine learning projects. I also have additional experience as a Junior Security Analyst, supporting risk management and security compliance in enterprise environments. I am currently
+                <span class="highlight"> seeking a 2026 summer co-op!</span>
               </h1>
             </div>
             <div className="button-group">
@@ -170,7 +171,7 @@ function HomePage() {
                 <div
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
-                  onClick={() => window.open('/IainRes.pdf', '_blank')}
+                  onClick={() => window.open('/Iain_Macdonald_Resume_2026.pdf', '_blank')}
                   className="button-four"
                 >
                   <img src={resumelogo} alt="Resume" />

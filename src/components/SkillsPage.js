@@ -21,6 +21,15 @@ const back_end_images = [PythonLogo, FlaskLogo, JavaLogo, CLogo];
 const libraries_images = [TensorFlowLogo, NumPyLogo, SQL, MongoDBLogo];
 const front_end_images = [ReactJS, CssHtmlLogo, JSLogo];
 
+// Project name to index mapping
+const projectIndexMap = {
+    "Art Suggester AI": 0,
+    "Just The Instructions": 1,
+    "SecondBrain": 2,
+    "SparkSlides": 3,
+    "Personal Portfolio": 4
+};
+
 // Skill details data
 const skillDetails = {
     "Python": {
@@ -99,19 +108,6 @@ function SkillsPage() {
     
     // Ref for the skill details element
     const skillDetailsRef = useRef(null);
-
-    /*const handleNavigateToProjects = (pageToGoTo) => () => {
-        if (isTransitioning) return;
-        
-        setIsTransitioning(true);
-        setShowTransitionCircle(true);
-        setCircleState('project-expanding');
-        
-        // Navigate after expansion animation completes
-        setTimeout(() => {
-            navigate('/projectsList', { state: { startBlack: true, page: pageToGoTo } });
-        }, 1000); // Match your CSS transition duration
-    }; */
     
     useEffect(() => {
         if (shouldStartWithTransition) {
@@ -164,6 +160,19 @@ function SkillsPage() {
         box.style.transform = 'rotateX(0deg) rotateY(0deg)';
     };
 
+    const handleNavigateToProject = (pageToGoTo) => () => {
+        if (isTransitioning) return;
+        
+        setIsTransitioning(true);
+        setShowTransitionCircle(true);
+        setCircleState('project-expanding');
+        
+        // Navigate after expansion animation completes
+        setTimeout(() => {
+            navigate('/projectsList', { state: { startBlack: true, page: pageToGoTo } });
+        }, 1000); // Match your CSS transition duration
+    };
+
     const handleSkillClick = (skillName, sectionName) => {
         if (selectedSkill === skillName) {
             // If clicking the same skill, deselect it
@@ -176,19 +185,6 @@ function SkillsPage() {
         }
     };
 
-    /*const handleNavigateToExperience = (pageToGoTo) => () => {
-        if (isTransitioning) return;
-        
-        setIsTransitioning(true);
-        setShowTransitionCircle(true);
-        setCircleState('expanding');
-        
-        // Navigate after expansion animation completes
-        setTimeout(() => {
-            navigate('/firstontario', { state: { startBlack: true, page: pageToGoTo } });
-        }, 1000); // Match your CSS transition duration
-    }; */
-
     const handleNavigateToHome =  () => {
         if (isTransitioning) return;
         
@@ -200,6 +196,11 @@ function SkillsPage() {
         setTimeout(() => {
             navigate('/', { state: { startBlack: true } });
         }, 1000); // Match your CSS transition duration
+    };
+
+    // Helper function to determine if a project is clickable
+    const isProjectClickable = (projectName) => {
+        return projectIndexMap.hasOwnProperty(projectName);
     };
 
     const renderSkillSection = (sectionTitle, skillNames, images) => (
@@ -226,7 +227,18 @@ function SkillsPage() {
                                     <h4>Related Projects:</h4>
                                     <ul>
                                         {skillDetails[skillName].projects.map((project, idx) => (
-                                            <li key={idx}>{project}</li>
+                                            <li key={idx}>
+                                                {isProjectClickable(project) ? (
+                                                    <span 
+                                                        className="clickable-project"
+                                                        onClick={handleNavigateToProject(projectIndexMap[project])}
+                                                    >
+                                                        {project}
+                                                    </span>
+                                                ) : (
+                                                    project
+                                                )}
+                                            </li>
                                         ))}
                                     </ul>
                                 </div>

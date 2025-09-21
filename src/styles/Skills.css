@@ -253,3 +253,16 @@ body {
     font-size: 0.9rem;
   }
 }
+
+
+.clickable-project {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.clickable-project:hover {
+  color: #0056b3;
+  text-decoration: none;
+}

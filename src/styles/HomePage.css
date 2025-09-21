@@ -3,13 +3,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 
   }
   
   html, body, #root, .App {
     height: 100%;
-    overflow: hidden;
     margin: 0;
     padding: 0;
   }
@@ -64,7 +62,6 @@
   gap: 2rem;
   min-height: 100vh;
   padding: 1rem;
-  overflow: hidden;
   perspective: 3000px; /* Adds depth for 3D transforms */
   background-color: #bddeff;
 
@@ -83,9 +80,19 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* Remove text-align: center from here */
-    margin-left: 200px;
     margin-top: -90px;
+  }
+
+  @media (max-width: 1479px) {
+    .intro {
+      margin-left: 10vw;
+    }
+  }
+  
+  @media (min-width: 1480px) {
+    .intro {
+      margin-left: 20vw;
+    }
   }
   
   .intro h1 {
@@ -147,6 +154,18 @@
 .button-four:hover {
   /* Specific hover styles for Button 4 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.highlight {
+  color: #0b93ee; /* bright blue */
+  font-weight: bold;
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 5px rgba(30,144,255,0.6); }
+  50% { text-shadow: 0 0 20px rgba(30,144,255,1); }
+  100% { text-shadow: 0 0 5px rgba(30,144,255,0.6); }
 }
 
 

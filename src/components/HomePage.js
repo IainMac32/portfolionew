@@ -120,7 +120,7 @@ function HomePage() {
               <img src={image} alt="Iain" className="left-image-home" />
               <h1>
                 Hi! My name is Iain, an aspiring AI software developer with experience in computer vision, natural language processing, and applied machine learning projects. I also have additional experience as a Junior Security Analyst, supporting risk management and security compliance in enterprise environments. I am currently
-                <span class="highlight"> seeking a 2026 summer co-op!</span>
+                <span class="highlight"> seeking a 2027 summer co-op!</span>
               </h1>
             </div>
             <div className="button-group">
